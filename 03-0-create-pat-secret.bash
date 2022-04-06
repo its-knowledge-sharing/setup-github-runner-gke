@@ -2,6 +2,8 @@
 
 source .env
 
+kubectl create ns ${NS1}
+
 SECRET=controller-manager
 
 cat << EOF | kubectl apply -n ${NS1} -f - 
