@@ -1,0 +1,6 @@
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: Runner
+metadata:
+  name: enterprise-runner-pjamenaja #https://github.com/pjamenaja
+spec:
+  enterprise: pjamenaja

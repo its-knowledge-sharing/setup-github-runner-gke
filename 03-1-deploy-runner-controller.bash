@@ -2,10 +2,13 @@
 
 source .env
 
-CRD_URL=https://raw.githubusercontent.com/actions-runner-controller/actions-runner-controller/v0.22.2/charts/actions-runner-controller/crds/
+APP_VERSION=v0.22.2
+HELM_VERSION=0.17.2
+
+CRD_URL=https://raw.githubusercontent.com/actions-runner-controller/actions-runner-controller/${APP_VERSION}/charts/actions-runner-controller/crds/
 kubectl create ns ${NS1}
 
-
+# Explicitly deploy CRDs because of file size issue
 kubectl create -n ${NS1} -f ${CRD_URL}/actions.summerwind.dev_horizontalrunnerautoscalers.yaml
 kubectl create -n ${NS1} -f ${CRD_URL}/actions.summerwind.dev_runnerdeployments.yaml
 kubectl create -n ${NS1} -f ${CRD_URL}/actions.summerwind.dev_runnerreplicasets.yaml
@@ -17,7 +20,7 @@ helm repo add runner-controller https://actions-runner-controller.github.io/acti
 
 helm template runner-controller runner-controller/actions-runner-controller \
     -f runner-controller/controller.yaml \
-    --version 0.17.2 \
+    --version ${HELM_VERSION} \
     --namespace ${NS1} > tmp-runner-controller.yaml
 #    --include-crds \
 
