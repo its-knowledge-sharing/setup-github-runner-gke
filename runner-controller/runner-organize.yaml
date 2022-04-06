@@ -4,7 +4,7 @@ kind: RunnerDeployment
 metadata:
   name: organize-runner-its-knowledge-sharing
 spec:
-  replicas: 2
+  #replicas: 2
   template:
     spec:
       organization: its-knowledge-sharing
