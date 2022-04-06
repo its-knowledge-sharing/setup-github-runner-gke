@@ -1,6 +1,11 @@
+---
 apiVersion: actions.summerwind.dev/v1alpha1
-kind: Runner
+kind: RunnerDeployment
 metadata:
-  name: organize-runner-its-knowledge-sharing 
+  name: organize-runner-its-knowledge-sharing
 spec:
-  organization: its-knowledge-sharing
+  replicas: 2
+  template:
+    spec:
+      organization: its-knowledge-sharing
+      env: []
