@@ -6,11 +6,11 @@ CRD_URL=https://raw.githubusercontent.com/actions-runner-controller/actions-runn
 kubectl create ns ${NS1}
 
 
-kubectl apply -n ${NS1} -f ${CRD_URL}/actions.summerwind.dev_horizontalrunnerautoscalers.yaml
-kubectl apply -n ${NS1} -f ${CRD_URL}/actions.summerwind.dev_runnerdeployments.yaml
-kubectl apply -n ${NS1} -f ${CRD_URL}/actions.summerwind.dev_runnerreplicasets.yaml
-kubectl apply -n ${NS1} -f ${CRD_URL}/actions.summerwind.dev_runners.yaml
-kubectl apply -n ${NS1} -f ${CRD_URL}/actions.summerwind.dev_runnersets.yaml
+kubectl replace -n ${NS1} -f ${CRD_URL}/actions.summerwind.dev_horizontalrunnerautoscalers.yaml
+kubectl replace -n ${NS1} -f ${CRD_URL}/actions.summerwind.dev_runnerdeployments.yaml
+kubectl replace -n ${NS1} -f ${CRD_URL}/actions.summerwind.dev_runnerreplicasets.yaml
+kubectl replace -n ${NS1} -f ${CRD_URL}/actions.summerwind.dev_runners.yaml
+kubectl replace -n ${NS1} -f ${CRD_URL}/actions.summerwind.dev_runnersets.yaml
 
 
 helm repo add runner-controller https://actions-runner-controller.github.io/actions-runner-controller
